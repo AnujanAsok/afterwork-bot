@@ -9,8 +9,6 @@ from langchain.experimental import AutoGPT
 from langchain.chat_models import ChatOpenAI
 import os
 
-os.environ["OPENAI_API_KEY"]='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'
-os.environ["SERPAPI_API_KEY"] ="d29c92b3ac2a36b4b26a22457a031c2dd8383295b4170c2bc1fe60d02ecf1a8b"
 search = SerpAPIWrapper()
 tools = [
     Tool(
@@ -31,7 +29,7 @@ index = faiss.IndexFlatL2(embedding_size)
 vectorstore = FAISS(embeddings_model.embed_query, index, InMemoryDocstore({}), {})
 
 agent = AutoGPT.from_llm_and_tools(
-    ai_name="Tom",
+    ai_name="Afra",
     ai_role="Assistant",
     tools=tools,
     llm=ChatOpenAI(temperature=0),
@@ -39,4 +37,4 @@ agent = AutoGPT.from_llm_and_tools(
 )
 # Set verbose to be true
 agent.chain.verbose = True
-agent.run(["write a report on the best venues in the bay area that can handle a party of 60 people. Limit the results to 3 vendors."])
+agent.run("write a report on the best venues in the bay area that can handle a party of 60 people. Limit the results to 3 vendors.")
