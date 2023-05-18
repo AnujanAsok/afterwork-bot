@@ -11,9 +11,6 @@ from langchain.output_parsers import PydanticOutputParser
 from pydantic import BaseModel, Field, validator
 from typing import List
 
-os.environ["OPENAI_API_KEY"]='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'
-os.environ["SERPAPI_API_KEY"] = "d29c92b3ac2a36b4b26a22457a031c2dd8383295b4170c2bc1fe60d02ecf1a8b"
-
 
 search = SerpAPIWrapper()
 llm = OpenAI(temperature=0)
